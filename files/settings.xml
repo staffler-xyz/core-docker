@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <client>
     <nick>dockerianer</nick>
-    <port>9001</port>
+    <port>9850</port>
     <xmlport>9851</xmlport>
     <autoconnect>true</autoconnect>
     <maxupload>16384</maxupload>
