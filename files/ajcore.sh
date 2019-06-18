@@ -1,14 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-if [[ ! -f /root/appleJuice/server.xml ]]; then
-    cp /opt/appleJuice/server.xml /root/appleJuice/server.xml
+export HOME=/config
+
+if [[ ! -f ${HOME}/appleJuice/server.xml ]]; then
+    cp /opt/appleJuice/server.xml ${HOME}/appleJuice/server.xml
 fi
 
-if [[ ! -f /root/appleJuice/settings.xml ]]; then
-    cp /opt/appleJuice/settings.xml /root/appleJuice/settings.xml
-    sed -i "s/dockerianer/dockerianer${RANDOM}/" /root/appleJuice/settings.xml
+if [[ ! -f ${HOME}/appleJuice/settings.xml ]]; then
+    cp /opt/appleJuice/settings.xml ${HOME}/appleJuice/settings.xml
+    sed -i "s/dockerianer/dockerianer${RANDOM}/" ${HOME}/appleJuice/settings.xml
 fi
 
-cd /opt/appleJuice/
-
-java -Djava.library.path=. -jar ajcore.jar
+java -Duser.home=${HOME} \
+          -XX:+UnlockExperimentalVMOptions \
+          -XX:+UseCGroupMemoryLimitForHeap \
+          -XX:MaxRAMFraction=1 \
+          -jar /opt/appleJuice/ajcore.jar

@@ -10,10 +10,10 @@
     <maxsourcesperfile>500</maxsourcesperfile>
     <speedperslot>3</speedperslot>
     <maxnewconnectionsperturn>50</maxnewconnectionsperturn>
-    <incomingdirectory>/root/appleJuice/incoming/</incomingdirectory>
-    <temporarydirectory>/root/appleJuice/temp/</temporarydirectory>
+    <incomingdirectory>/config/appleJuice/incoming/</incomingdirectory>
+    <temporarydirectory>/config/appleJuice/temp/</temporarydirectory>
     <password>de305845b091d971732a123977e2d816</password>
     <share>
-        <directory name="/root/appleJuice/incoming" sharemode="subdirectory"/>
+        <directory name="/config/appleJuice/incoming" sharemode="subdirectory"/>
     </share>
 </client>
