@@ -1,5 +1,10 @@
 # appleJuice Core
 
+![Docker Pulls](https://img.shields.io/docker/pulls/red171/ajcore.svg)
+![Docker Stars](https://img.shields.io/docker/stars/red171/ajcore.svg)
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/red171/ajcore.svg)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/red171/ajcore.svg)
+
 initial core password: `applejuice`
 
 ## Exposed Ports
