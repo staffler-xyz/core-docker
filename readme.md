@@ -35,7 +35,7 @@ on first start the [server.xml](files/server.xml) and [settings.xml](files/setti
 
 ## java memory limit
 
-the java process takes all resources from the container by default (new java feature since version 8),
+the java process takes 90% resources from the container by default (new java feature since version 8),
 so you can easily change the memory limits within docker
 
 ```bash

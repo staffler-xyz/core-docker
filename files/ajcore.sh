@@ -12,7 +12,5 @@ if [[ ! -f ${HOME}/appleJuice/settings.xml ]]; then
 fi
 
 java -Duser.home=${HOME} \
-          -XX:+UnlockExperimentalVMOptions \
-          -XX:+UseCGroupMemoryLimitForHeap \
-          -XX:MaxRAMFraction=1 \
+          -XX:MaxRAMPercentage=90.0 \
           -jar /opt/appleJuice/ajcore.jar
