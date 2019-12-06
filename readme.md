@@ -4,6 +4,7 @@
 ![Docker Stars](https://img.shields.io/docker/stars/red171/ajcore.svg)
 ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/red171/ajcore.svg)
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/red171/ajcore.svg)
+![MicroBadger Size](https://img.shields.io/microbadger/image-size/red171/ajcore.svg)
 
 initial core password: `applejuice`
 
