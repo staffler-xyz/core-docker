@@ -6,7 +6,7 @@ ENV GID=1000
 
 RUN dpkg --add-architecture i386 && \
     apt update -y && \
-    apt install -y execstack default-jre-headless:i386 && \
+    apt install -y curl execstack default-jre-headless:i386 && \
     apt clean
 
 RUN update-alternatives --set java $(update-alternatives --list java | grep i386)
@@ -35,3 +35,5 @@ ENTRYPOINT ["/opt/appleJuice/ajcore.sh"]
 VOLUME /config/appleJuice/
 
 WORKDIR /config/appleJuice/
+
+HEALTHCHECK --interval=60s --start-period=30s CMD curl --fail http://localhost:9851 || exit 1
