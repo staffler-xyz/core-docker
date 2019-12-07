@@ -44,5 +44,5 @@ HEALTHCHECK --interval=60s --start-period=30s CMD curl --fail http://localhost:9
 LABEL org.label-schema.name="appleJuice Core" \
       org.label-schema.vcs-ref=${VCS_REF} \
       org.label-schema.build-date=${BUILD_DATE} \
-      org.label-schema.vcs-url="https://bitbucket.org/red171/applejuice-docker-core" \
+      org.label-schema.vcs-url="https://github.com/red171/applejuice-docker-core" \
       org.label-schema.schema-version="1.0"
