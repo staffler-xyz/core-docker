@@ -25,7 +25,7 @@ RUN addgroup --gid "$GID" "$USER" \
 
 RUN mkdir -p /opt/appleJuice/
 
-COPY files/* /opt/appleJuice/
+ADD files/ /opt/appleJuice/
 
 RUN mv /opt/appleJuice/libajnetmask.so /usr/lib/libajnetmask.so && execstack -c /usr/lib/libajnetmask.so
 

@@ -25,7 +25,7 @@ create and run `ajcore` container with the following command:
 docker run -d -it \
         -p 9850-9851:9850-9851 \
         -v ~/appleJuice/:/config/appleJuice/ \
-        --memory="512Mib" \
+        -e JAVA_OPTIONS="-Xmx2048m" \
         --name ajcore \
         red171/ajcore:latest
 ```
@@ -36,12 +36,7 @@ on first start the [server.xml](files/server.xml) and [settings.xml](files/setti
 
 ## java memory limit
 
-the java process takes 90% resources from the container by default (new java feature since version 8),
-so you can easily change the memory limits within docker
-
-```bash
-docker update --memory "1024Mib" ajcore
-```
+just add the `environment` Variable `JAVA_OPTIONS` with the `-Xmx` Memory Variable
 
 ## shared volumes
 
