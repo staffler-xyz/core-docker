@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM openjdk:8-jre-slim-buster
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -6,13 +6,6 @@ ARG VCS_REF
 ENV USER=app
 ENV UID=1000
 ENV GID=1000
-
-RUN dpkg --add-architecture i386 && \
-    apt update -y && \
-    apt install -y curl execstack default-jre-headless:i386 && \
-    apt clean
-
-RUN update-alternatives --set java $(update-alternatives --list java | grep i386)
 
 RUN addgroup --gid "$GID" "$USER" \
     && adduser \
@@ -27,7 +20,7 @@ RUN mkdir -p /opt/appleJuice/
 
 ADD files/ /opt/appleJuice/
 
-RUN mv /opt/appleJuice/libajnetmask.so /usr/lib/libajnetmask.so && execstack -c /usr/lib/libajnetmask.so
+RUN mv /opt/appleJuice/libajnetmask.so /usr/lib/libajnetmask.so
 
 EXPOSE 9850 9851
 
@@ -39,7 +32,7 @@ VOLUME /config/appleJuice/
 
 WORKDIR /config/appleJuice/
 
-HEALTHCHECK --interval=60s --start-period=30s CMD curl --fail http://localhost:9851 || exit 1
+HEALTHCHECK --interval=30s --start-period=10s CMD curl --fail http://localhost:9851 || exit 1
 
 LABEL org.label-schema.name="appleJuice Core" \
       org.label-schema.vcs-ref=${VCS_REF} \
