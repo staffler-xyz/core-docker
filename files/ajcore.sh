@@ -11,4 +11,4 @@ if [[ ! -f ${HOME}/appleJuice/settings.xml ]]; then
   sed -i "s/dockerianer/dockerianer${RANDOM}/" ${HOME}/appleJuice/settings.xml
 fi
 
-java "${JAVA_OPTIONS}" -Duser.home=${HOME} -jar /opt/appleJuice/ajcore.jar
+java -Duser.home=${HOME} -XX:MaxRAMPercentage=95.0 -jar /opt/appleJuice/ajcore.jar
