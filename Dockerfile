@@ -7,6 +7,8 @@ ENV USER=app
 ENV UID=1000
 ENV GID=1000
 
+RUN apt update && apt install -y --no-install-recommends curl && apt clean
+
 RUN addgroup --gid "$GID" "$USER" \
     && adduser \
     --disabled-password \
