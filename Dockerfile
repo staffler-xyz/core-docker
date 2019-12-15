@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-slim-buster
+FROM openjdk:8-jre-alpine
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -7,22 +7,15 @@ ENV USER=app
 ENV UID=1000
 ENV GID=1000
 
-RUN apt update && apt install -y --no-install-recommends curl && apt clean
+RUN apk add curl
 
-RUN addgroup --gid "$GID" "$USER" \
-    && adduser \
-    --disabled-password \
-    --gecos "" \
-    --home "/config" \
-    --ingroup "$USER" \
-    --uid "$UID" \
-    "$USER"
+RUN addgroup -g $GID $USER && adduser -u $UID -G $USER -s /bin/sh -D $USER --home "/config"
 
 RUN mkdir -p /opt/appleJuice/
 
 ADD files/ /opt/appleJuice/
 
-RUN mv /opt/appleJuice/libajnetmask.so /usr/lib/libajnetmask.so
+RUN mv /opt/appleJuice/lib/libajnetmask-x86-64.so /usr/lib/libajnetmask.so && rm /opt/appleJuice/lib/*
 
 EXPOSE 9850 9851
 

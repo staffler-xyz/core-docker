@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <servers>
+    <server name="knastbruder.applejuicenet.de" host="knastbruder.applejuicenet.de" lastseen="0" port="9855" connectiontry="1"/>
+    <server name="theobox.ddns.net" host="theobox.ddns.net" lastseen="0" port="9999" connectiontry="1"/>
     <server name="thadeus.ddns.net" host="thadeus.ddns.net" lastseen="0" port="9855" connectiontry="1"/>
-    <server name="heobox.ddns.net" host="heobox.ddns.net" lastseen="0" port="9999" connectiontry="1"/>
     <server name="gigant2.goip.de" host="gigant2.goip.de" lastseen="0" port="21200" connectiontry="1"/>
     <server name="gigant2.spdns.de" host="gigant2.spdns.de" lastseen="0" port="2020" connectiontry="1"/>
     <server name="m0h.ddnss.de" host="m0h.ddnss.de" lastseen="0" port="33210" connectiontry="1"/>
