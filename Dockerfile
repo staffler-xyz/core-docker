@@ -15,7 +15,9 @@ RUN mkdir -p /opt/appleJuice/
 
 ADD files/ /opt/appleJuice/
 
-RUN mv /opt/appleJuice/lib/libajnetmask-amd64.so /usr/lib/libajnetmask.so && rm /opt/appleJuice/lib/*
+ADD https://github.com/red171/applejuice-libajnetmask/releases/download/1.0.0/libajnetmask-amd64.so /usr/lib/libajnetmask.so
+
+RUN chmod +r /usr/lib/libajnetmask.so
 
 EXPOSE 9850 9851
 
