@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+
+if [ ! -f /config/appleJuice/settings.xml ]; then
+  mkdir -p /config/appleJuice/
+  cp /app/settings.xml /config/appleJuice/settings.xml
+  sed -i "s/dockerianer/dockerianer${RANDOM}/" /config/appleJuice/settings.xml
+fi
