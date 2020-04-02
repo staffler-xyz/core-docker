@@ -6,18 +6,22 @@
 
 initial core password: `applejuice`
 
+### Environment Variables
+
+| Variable    | Value           | Description |
+|-------------|-----------------|-------------|
+| `PUID`      | `1000`          | UserID      |
+| `PGID`      | `1000`          | GroupID     |
+| `CORE_PORT` | `9850`          | P2P Port    |
+| `XML_PORT`  | `9851`          | XML Port    |
+| `TZ`        | `Europe/Berlin` | TimeZone    |
+
 ## Exposed Ports
+
+- exposed ports are base on `CORE_PORT` and `XML_PORT`, by default:
 
 - `9850` - P2P Port
 - `9851` - XML Port
-
-### Environment Variables
-
-| Variable | Value           | Description |
-|----------|-----------------|-------------|
-| `PUID`   | `1000`          | UserID      |
-| `PGID`   | `1000`          | GroupID     |
-| `TZ`     | `Europe/Berlin` | TimeZone    |
 
 ## Volumes
 
@@ -40,7 +44,7 @@ on first start the [settings.xml](rootfs/app/settings.xml) will be copied to the
 
 ## java memory limit
 
-the java process takes `95%` resources from the container by default (new java feature since version 8),
+the java process takes `98%` resources from the container by default (new java feature since version 8),
 so you can easily change the memory limits within docker
 
 ```bash

@@ -1,26 +1,38 @@
-FROM lsiobase/alpine:3.11
+FROM openjdk:8-jre-alpine
 
 ARG BUILD_DATE
 ARG VERSION
 ARG VCS_REF
 ARG TARGETARCH
 
-ENV HOME /config
+ENV PUID=1000
+ENV PGID=1000
+
+ENV CORE_PORT=9850
+ENV XML_PORT=9851
 
 ADD https://github.com/red171/applejuice-libajnetmask/releases/download/1.0.0/libajnetmask-${TARGETARCH}.so /usr/lib/libajnetmask.so
 
-RUN apk add --no-cache curl openjdk8-jre && \
-    chmod +r /usr/lib/libajnetmask.so
+RUN apk add --no-cache curl shadow sudo && \
+    chmod +r /usr/lib/libajnetmask.so && \
+    addgroup -g $PGID abc &&\
+    adduser -u $PUID -G abc -s /bin/ash -D abc --home "/config"
 
 COPY rootfs/ /
 
-EXPOSE 9850 9851
+EXPOSE ${CORE_PORT} ${XML_PORT}
 
 WORKDIR /config/appleJuice
 
 VOLUME /config/appleJuice
 
-HEALTHCHECK --interval=30s --start-period=10s CMD curl --fail http://localhost:9851 || exit 1
+HEALTHCHECK --interval=30s --start-period=10s CMD curl --fail http://localhost:${XML_PORT} || exit 1
+
+ENTRYPOINT ["/init"]
+
+CMD ["java", "-XX:MaxRAMPercentage=98.0", "-jar", "/app/ajcore.jar"]
+
+SHELL ["/bin/ash"]
 
 LABEL build_version="appleJuice Core ${VERSION}" \
       maintainer="red171" \

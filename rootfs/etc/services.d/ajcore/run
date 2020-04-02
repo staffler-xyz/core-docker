@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec s6-setuidgid abc java -XX:MaxRAMPercentage=95.0 -jar /app/ajcore.jar
