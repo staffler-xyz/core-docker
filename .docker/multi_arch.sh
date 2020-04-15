@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=${1}:="0.31.149.110"
+VERSION=${1:-"0.31.149.110"}
 NAME="ajcore"
 IMAGE="red171/${NAME}"
 
