@@ -11,7 +11,7 @@ ENV PGID=1000
 ENV CORE_PORT=9850
 ENV XML_PORT=9851
 
-ADD https://github.com/appleJuiceNET/applejuice-libajnetmask/releases/download/1.0.0/libajnetmask-${TARGETARCH}.so /usr/lib/libajnetmask.so
+ADD https://github.com/appleJuiceNET/ajnetmask/releases/download/1.0.0/libajnetmask-${TARGETARCH}.so /usr/lib/libajnetmask.so
 
 RUN apk add --no-cache curl shadow sudo && \
     chmod +r /usr/lib/libajnetmask.so && \
@@ -39,6 +39,6 @@ LABEL build_version="appleJuice Core ${VERSION}" \
       org.label-schema.name="appleJuice Core" \
       org.label-schema.vcs-ref=${VCS_REF} \
       org.label-schema.build-date=${BUILD_DATE} \
-      org.label-schema.vcs-url="https://github.com/appleJuiceNET/applejuice-docker-core" \
+      org.label-schema.vcs-url="https://github.com/appleJuiceNET/core-docker" \
       org.label-schema.version=${VERSION} \
       org.label-schema.schema-version="1.0"
